@@ -4,54 +4,54 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
 REPO1="https://raw.githubusercontent.com/myridwan/abc/ipuk/"
 REPO="https://raw.githubusercontent.com/myridwan/scriptvps/ipuk/"
-CDNF="https://raw.githubusercontent.com/myridwan/vvip/ipuk"
+CDNF="https://raw.githubusercontent.com/titis69/vpn4/main"
 ###
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/MyRidwan/izinvps/ipuk/ip > /root/tmp
-    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
-    for user in "${data[@]}"
-    do
-    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
-    d1=(`date -d "$exp" +%s`)
-    d2=(`date -d "$biji" +%s`)
-    exp2=$(( (d1 - d2) / 86400 ))
-    if [[ "$exp2" -le "0" ]]; then
-    echo $user > /etc/.$user.ini
-    else
-    rm -f  /etc/.$user.ini > /dev/null 2>&1
-    fi
-    done
-    rm -f  /root/tmp
+	curl -sS https://raw.githubusercontent.com/titis69/permission/main/Ip > /root/tmp
+	data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
+	for user in "${data[@]}"
+	do
+	exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
+	d1=(`date -d "$exp" +%s`)
+	d2=(`date -d "$biji" +%s`)
+	exp2=$(( (d1 - d2) / 86400 ))
+	if [[ "$exp2" -le "0" ]]; then
+	echo $user > /etc/.$user.ini
+	else
+	rm -f  /etc/.$user.ini > /dev/null 2>&1
+	fi
+	done
+	rm -f  /root/tmp
 }
-# https://raw.githubusercontent.com/MyRidwan/izinvps/ipuk/ip 
+# https://raw.githubusercontent.com/titis69/permission/main/Ip
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/MyRidwan/izinvps/ipuk/ip | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/titis69/permission/main/Ip | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
 Bloman () {
 if [ -f "/etc/.$Name.ini" ]; then
 CekTwo=$(cat /etc/.$Name.ini)
-    if [ "$CekOne" = "$CekTwo" ]; then
-        res="Expired"
-    fi
+	if [ "$CekOne" = "$CekTwo" ]; then
+    	res="Expired"
+	fi
 else
 res="Permission Accepted..."
 fi
 }
 
 PERMISSION () {
-    MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/MyRidwan/izinvps/ipuk/ip | awk '{print $4}' | grep $MYIP)
-    if [ "$MYIP" = "$IZIN" ]; then
-    Bloman
-    else
-    res="Permission Denied!"
-    fi
-    BURIQ
+	MYIP=$(curl -sS ipv4.icanhazip.com)
+	IZIN=$(curl -sS https://raw.githubusercontent.com/titis69/permission/main/Ip | awk '{print $4}' | grep $MYIP)
+	if [ "$MYIP" = "$IZIN" ]; then
+	Bloman
+	else
+	res="Permission Denied!"
+	fi
+	BURIQ
 }
 wget -O /etc/banner ${REPO1}config/banner >/dev/null 2>&1
-    chmod +x /etc/banner
+	chmod +x /etc/banner
 clear
 red='\e[1;31m'
 green='\e[0;32m'
@@ -66,12 +66,12 @@ red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 cd /root
 #System version number
 if [ "${EUID}" -ne 0 ]; then
-		echo "You need to run this script as root"
-		exit 1
+    	echo "You need to run this script as root"
+    	exit 1
 fi
 if [ "$(systemd-detect-virt)" == "openvz" ]; then
-		echo "OpenVZ is not supported"
-		exit 1
+    	echo "OpenVZ is not supported"
+    	exit 1
 fi
 
 localip=$(hostname -I | cut -d\  -f1)
@@ -127,7 +127,7 @@ fi
 ttet=`uname -r`
 ReqPKG="linux-headers-$ttet"
 if ! dpkg -s $ReqPKG  >/dev/null 2>&1; then
-  rm /root/setup.sh >/dev/null 2>&1 
+  rm /root/setup.sh >/dev/null 2>&1
   exit
 else
   clear
@@ -135,7 +135,7 @@ fi
 
 
 secs_to_human() {
-    echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
+	echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
 }
 start=$(date +%s)
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -148,7 +148,7 @@ cat> /root/.profile << END
 
 if [ "$BASH" ]; then
   if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
+	. ~/.bashrc
   fi
 fi
 
@@ -196,18 +196,18 @@ clear
 fi
 fi
 
-    # > pasang gotop
-    gotop_latest="$(curl -s https://api.github.com/repos/xxxserxxx/gotop/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
-    gotop_link="https://github.com/xxxserxxx/gotop/releases/download/v$gotop_latest/gotop_v"$gotop_latest"_linux_amd64.deb"
-    curl -sL "$gotop_link" -o /tmp/gotop.deb
-    dpkg -i /tmp/gotop.deb >/dev/null 2>&1
+	# > pasang gotop
+	gotop_latest="$(curl -s https://api.github.com/repos/xxxserxxx/gotop/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
+	gotop_link="https://github.com/xxxserxxx/gotop/releases/download/v$gotop_latest/gotop_v"$gotop_latest"_linux_amd64.deb"
+	curl -sL "$gotop_link" -o /tmp/gotop.deb
+	dpkg -i /tmp/gotop.deb >/dev/null 2>&1
 
-    # > Pasang BBR Plus
-    wget -qO /tmp/bbr.sh "${REPO}server/bbr.sh" >/dev/null 2>&1
-    chmod +x /tmp/bbr.sh && bash /tmp/bbr.sh
+	# > Pasang BBR Plus
+	wget -qO /tmp/bbr.sh "${REPO}server/bbr.sh" >/dev/null 2>&1
+	chmod +x /tmp/bbr.sh && bash /tmp/bbr.sh
 
 echo ""
-wget -q https://raw.githubusercontent.com/myridwan/vvip/ipuk/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
+wget -q https://raw.githubusercontent.com/titis69/vpn4/main/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
 rm dependencies.sh
 clear
 
@@ -215,43 +215,43 @@ echo -e "═══════════════════════�
 echo -e "█████████" | lolcat
 echo -e "█▄█████▄█╔╦╗╔═╦╗╔══╗╔═╗╔═╗╔═╗─╔╗╔═╗╔═╗╔══╗" | lolcat
 echo -e "█▼▼▼▼▼   ║╔╝╚╗║║╚╗╔╝║╬║║╬║║║║─║║║╦╝║╔╝╚╗╔╝ " | lolcat
-echo -e "█.       ║╚╗╔╩╗║─║║─║╔╝║╗╣║║║╔╣║║╩╗║╚╗─║║─ " | lolcat
+echo -e "█.   	║╚╗╔╩╗║─║║─║╔╝║╗╣║║║╔╣║║╩╗║╚╗─║║─ " | lolcat
 echo -e "█▲▲▲▲▲   ╚╩╝╚══╝─╚╝─╚╝─╚╩╝╚═╝╚═╝╚═╝╚═╝─╚╝─ " | lolcat
 echo -e "█████████ " | lolcat
 echo -e " ██ ██ " | lolcat
 echo -e "════════════════════════════════════════" | lolcat
-echo -e "            [Free Internet]" | lolcat
+echo -e "        	[Free Internet]" | lolcat
 echo -e "════════════════════════════════════════" | lolcat
-    echo -e "${red}    ♦️${NC} ${green} CUSTOM SETUP DOMAIN VPS     ${NC}"
-    echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-    echo "1. Use Domain From Script / Gunakan Domain Dari Script"
-    echo "2. Choose Your Own Domain / Pilih Domain Sendiri"
-    echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-    read -rp "Choose Your Domain Installation : " dom 
+	echo -e "${red}	♦️${NC} ${green} CUSTOM SETUP DOMAIN VPS 	${NC}"
+	echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+	echo "1. Use Domain From Script / Gunakan Domain Dari Script"
+	echo "2. Choose Your Own Domain / Pilih Domain Sendiri"
+	echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+	read -rp "Choose Your Domain Installation : " dom
 
-    if test $dom -eq 1; then
-    clear
-    apt install jq curl -y
-    wget -q -O /root/cf "${CDNF}/cf" >/dev/null 2>&1
-    chmod +x /root/cf
-    bash /root/cf | tee /root/install.log
-    print_success "DomainAll"
-    elif test $dom -eq 2; then
-    read -rp "Enter Your Domain : " domen 
-    echo $domen > /root/domain
-    echo "$domen" > /root/domain
-    echo "$domen" > /root/scdomain
-    echo "$domen" > /etc/xray/domain
-    echo "$domen" > /etc/xray/scdomain
-    echo "IP=$domen" > /var/lib/ssnvpn-pro/ipvps.conf
-    cp /root/domain /etc/xray/domain
-    else 
-    echo "Not Found Argument"
-    exit 1
-    fi
-    echo -e "${GREEN}Done!${NC}"
-    sleep 2
-    clear
+	if test $dom -eq 1; then
+	clear
+	apt install jq curl -y
+	wget -q -O /root/cf "${CDNF}/cf" >/dev/null 2>&1
+	chmod +x /root/cf
+	bash /root/cf | tee /root/install.log
+	print_success "DomainAll"
+	elif test $dom -eq 2; then
+	read -rp "Enter Your Domain : " domen
+	echo $domen > /root/domain
+	echo "$domen" > /root/domain
+	echo "$domen" > /root/scdomain
+	echo "$domen" > /etc/xray/domain
+	echo "$domen" > /etc/xray/scdomain
+	echo "IP=$domen" > /var/lib/ssnvpn-pro/ipvps.conf
+	cp /root/domain /etc/xray/domain
+	else
+	echo "Not Found Argument"
+	exit 1
+	fi
+	echo -e "${GREEN}Done!${NC}"
+	sleep 2
+	clear
 
 #THEME RED
 cat <<EOF>> /etc/ssnvpn/theme/red
@@ -292,24 +292,24 @@ EOF
 echo -e "$green[INFO]$NC Install SSH"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/myridwan/VVIP/ipuk/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/titis69/vpn4/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "$green[INFO]$NC Install XRAY!"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/myridwan/VVIP/ipuk/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/titis69/vpn4/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
 echo -e "$green[INFO]$NC Install SET-BR!"
-wget https://raw.githubusercontent.com/myridwan/VVIP/ipuk/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/titis69/vpn4/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
 echo -e "$green[INFO]$NC Install WEBSOCKET!"
-wget https://raw.githubusercontent.com/myridwan/VVIP/ipuk/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/titis69/vpn4/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
-wget https://raw.githubusercontent.com/myridwan/VVIP/ipuk/websocket/nontls.sh && chmod +x nontls.sh && ./nontls.sh
+wget https://raw.githubusercontent.com/titis69/vpn4/main/websocket/nontls.sh && chmod +x nontls.sh && ./nontls.sh
 clear
 echo -e "$green[INFO]$NC Download Extra Menu"
 sleep 2
-wget https://raw.githubusercontent.com/myridwan/vvip/ipuk/update/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/titis69/vpn4/main/update/update.sh && chmod +x update.sh && ./update.sh
 rm -f update.sh
 clear
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -319,7 +319,7 @@ cat> /root/.profile << END
 
 if [ "$BASH" ]; then
   if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
+	. ~/.bashrc
   fi
 fi
 
@@ -358,31 +358,31 @@ echo "------------------------------------------------------------"
 echo ""
 echo ""
 echo "   >>> Service & Port"  | tee -a log-install.txt
-echo "   - OpenSSH                 : 22"  | tee -a log-install.txt
-echo "   - SSH Websocket           : 80" | tee -a log-install.txt
-echo "   - SSH SSL Websocket       : 443" | tee -a log-install.txt
+echo "   - OpenSSH             	: 22"  | tee -a log-install.txt
+echo "   - SSH Websocket       	: 80" | tee -a log-install.txt
+echo "   - SSH SSL Websocket   	: 443" | tee -a log-install.txt
 echo "   - SSH NON-SSL Websocket   : 80, 8880" | tee -a log-install.txt
-echo "   - SLOWDNS                 : 5300 [OFF]" | tee -a log-install.txt
-echo "   - Stunnel4                : 447, 777" | tee -a log-install.txt
-echo "   - Dropbear                : 109, 143" | tee -a log-install.txt
-echo "   - Badvpn                  : 7100-7900" | tee -a log-install.txt
-echo "   - Nginx                   : 81" | tee -a log-install.txt
-echo "   - XRAY  Vmess TLS         : 443" | tee -a log-install.txt
-echo "   - XRAY  Vmess None TLS    : 80" | tee -a log-install.txt
-echo "   - XRAY  Vless TLS         : 443" | tee -a log-install.txt
-echo "   - XRAY  Vless None TLS    : 80" | tee -a log-install.txt
-echo "   - Trojan GRPC             : 443" | tee -a log-install.txt
-echo "   - Trojan WS               : 443" | tee -a log-install.txt
-echo "   - Sodosok WS/GRPC         : 443" | tee -a log-install.txt
+echo "   - SLOWDNS             	: 5300 [OFF]" | tee -a log-install.txt
+echo "   - Stunnel4            	: 447, 777" | tee -a log-install.txt
+echo "   - Dropbear            	: 109, 143" | tee -a log-install.txt
+echo "   - Badvpn              	: 7100-7900" | tee -a log-install.txt
+echo "   - Nginx               	: 81" | tee -a log-install.txt
+echo "   - XRAY  Vmess TLS     	: 443" | tee -a log-install.txt
+echo "   - XRAY  Vmess None TLS	: 80" | tee -a log-install.txt
+echo "   - XRAY  Vless TLS     	: 443" | tee -a log-install.txt
+echo "   - XRAY  Vless None TLS	: 80" | tee -a log-install.txt
+echo "   - Trojan GRPC         	: 443" | tee -a log-install.txt
+echo "   - Trojan WS           	: 443" | tee -a log-install.txt
+echo "   - Sodosok WS/GRPC     	: 443" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
-echo "   - Timezone                : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
-echo "   - Fail2Ban                : [ON]"  | tee -a log-install.txt
-echo "   - Dflate                  : [ON]"  | tee -a log-install.txt
-echo "   - IPtables                : [ON]"  | tee -a log-install.txt
-echo "   - Auto-Reboot             : [ON]"  | tee -a log-install.txt
-echo "   - IPv6                    : [OFF]"  | tee -a log-install.txt
-echo "   - Autoreboot On           : $aureb:00 $gg GMT +7" | tee -a log-install.txt
+echo "   - Timezone            	: Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
+echo "   - Fail2Ban            	: [ON]"  | tee -a log-install.txt
+echo "   - Dflate              	: [ON]"  | tee -a log-install.txt
+echo "   - IPtables            	: [ON]"  | tee -a log-install.txt
+echo "   - Auto-Reboot         	: [ON]"  | tee -a log-install.txt
+echo "   - IPv6                	: [OFF]"  | tee -a log-install.txt
+echo "   - Autoreboot On       	: $aureb:00 $gg GMT +7" | tee -a log-install.txt
 echo "   - Autobackup Data" | tee -a log-install.txt
 echo "   - AutoKill Multi Login User" | tee -a log-install.txt
 echo "   - Auto Delete Expired Account" | tee -a log-install.txt
@@ -404,7 +404,7 @@ echo ""
 echo "" | tee -a log-install.txt
 rm /root/cf.sh >/dev/null 2>&1
 rm /root/setup.sh >/dev/null 2>&1
-rm /root/insshws.sh 
+rm /root/insshws.sh
 rm /root/update.sh
 rm /root/nontls.sh
 rm /root/install-sldns.sh
