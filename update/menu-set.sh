@@ -224,6 +224,7 @@ echo -e "\033[1;93m〔⎆〕 ${grenbo}5.${NC} \033[0;36mTcp TWEAK${NC}"
 echo -e "\033[1;93m〔⎆〕 ${grenbo}6.${NC} \033[0;36mRestart ALL${NC}"
 echo -e "\033[1;93m〔⎆〕 ${grenbo}7.${NC} \033[0;36mAuto REBOOT${NC}"
 echo -e "\033[1;93m〔⎆〕 ${grenbo}8.${NC} \033[0;36mSPEEDTEST ${NC}"
+echo -e "\033[1;93m〔⎆〕 ${grenbo}0.${NC} \033[0;36mKembali Menu ${NC}"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 read -p "  Select menu :  "  opt
