@@ -292,7 +292,7 @@ EOF
 echo -e "$green[INFO]$NC Install SSH"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/titis69/vpn4/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/titis69/VPN6/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "$green[INFO]$NC Install XRAY!"
 sleep 2
@@ -300,7 +300,7 @@ clear
 wget https://raw.githubusercontent.com/titis69/vpn4/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
 echo -e "$green[INFO]$NC Install SET-BR!"
-wget https://raw.githubusercontent.com/titis69/vpn4/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/titis69/VPN6/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
 echo -e "$green[INFO]$NC Install WEBSOCKET!"
 wget https://raw.githubusercontent.com/titis69/vpn4/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
